@@ -1,0 +1,60 @@
+.todoApp {
+  text-align: center;
+  margin: auto;
+  float: none !important;
+}
+.nav-tabs>li {
+    width: 50%;
+}
+.nav-tabs {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.todoApp-input {
+  margin: 20px 0 20px 0;
+  height: 40px;
+  width: 250px;
+  border: none;
+  border-bottom: 3px solid #50CCD9;
+  background-color: #ffffcc;
+}
+
+.App {
+  margin-top: 30px;
+}
+
+.todo {
+  cursor: pointer;
+  margin: 8px 0 0 0;
+}
+
+.todo > span {
+  margin-left: 8px;
+}
+
+.uncomplete {
+  color: #aaa;
+  text-decoration: line-through;
+}
+
+.nothing {
+  color: #aaa;
+}
+
+::-webkit-input-placeholder {
+   text-align: center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   text-align: center;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   text-align: center;
+}
+
+:-ms-input-placeholder {
+   text-align: center;
+}

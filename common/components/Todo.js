@@ -32,12 +32,22 @@ const Todoapp = ({ todos , dispatch }) => {
       })
     }
 
-
     return filterTodolist
   }
 
-  let todo_uncomplete = filterHandler(todos,true)
-  let todo_complete = filterHandler(todos,false)
+const todolist = ( array_todo ) => {
+  return array_todo.map(
+           ( todo , index ) => (
+               <div key={ index } onClick = { completeHandler.bind( this , index ) } className={ !todo.complete ? 'todo' : 'todo uncomplete' } >
+                 <input type='checkbox' checked={todo.complete}/>
+                 <span>{todo.text}</span>
+               </div>
+           )
+         )
+}
+
+  let todo_uncomplete = filterHandler( todos , true )
+  let todo_complete = filterHandler( todos , false )
 
   return (
     <div className = 'todoApp col-sm-6 col-xs-10'>
@@ -47,26 +57,12 @@ const Todoapp = ({ todos , dispatch }) => {
         </ul>
         <div className = "tab-content">
            <div role="tabpanel" className = "tab-pane active" id="todo">
-                  { todo_uncomplete.map(
-                    ( todo , index ) => (
-                        <div key={ index } onClick = { completeHandler.bind( this , index ) } className={ !todo.complete ? 'todo' : 'todo uncomplete' } >
-                          <input type='checkbox' checked={todo.complete}/>
-                          <span>{todo.text}</span>
-                        </div>
-                    )
-                  ) }
+                  { todolist(todo_uncomplete) }
                   { todo_uncomplete[0] ? '' : (<h3 className='nothing'>{'Nothing todo'}</h3>) }
            </div>
            <div role="tabpanel" className = "tab-pane" id="complete">
-           { todo_complete.map(
-             ( todo , index ) => (
-                 <div key={ index } onClick = { completeHandler.bind( this , index ) } className={ !todo.complete ? 'todo' : 'todo uncomplete' } >
-                   <input type='checkbox' checked={todo.complete}/>
-                   <span>{todo.text}</span>
-                 </div>
-             )
-           ) }
-           { todo_complete[0] ? '' : (<h3 className='nothing'>{'Nothing complete'}</h3>) }
+                 { todolist(todo_complete) }
+                 { todo_complete[0] ? '' : (<h3 className='nothing'>{'Nothing complete'}</h3>) }
            </div>
        </div>
 
